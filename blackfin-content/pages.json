@@ -1,0 +1,389 @@
+{
+  "home": {
+    "slides": [
+      {
+        "image": "/images/hero-bg.webp",
+        "headline": "Tampa Bay's Finest Painting & Remodeling",
+        "subheadline": "Leverage our years of proven experience to make your residential or commercial project the best it can be.",
+        "cta": {
+          "label": "Get a Free Quote!",
+          "href": "/contact"
+        }
+      },
+      {
+        "image": "/images/residential-project.jpg",
+        "headline": "Transform Your Home Into Your Dream",
+        "subheadline": "From kitchens and bathrooms to master suites and whole-home remodels — we manage every detail.",
+        "cta": {
+          "label": "Residential Services",
+          "href": "/residential"
+        }
+      },
+      {
+        "image": "/images/commercial-project.jpg",
+        "headline": "Make Your Large Project a Breeze",
+        "subheadline": "HOAs, condos, complexes, and institutions — commercial projects delivered on time and within budget.",
+        "cta": {
+          "label": "Commercial Services",
+          "href": "/commercial"
+        }
+      }
+    ],
+    "features": [
+      {
+        "image": "/images/residential-project.jpg",
+        "tag": "Residential",
+        "headline": "We Manage All the Details So You Don't Have To",
+        "body": "From bathrooms to kitchens, to master suites to whole homes — our team transforms your living space into something extraordinary. We source premium materials and bring master craftsmanship to every project.",
+        "reverse": false,
+        "dark": false,
+        "cta": {
+          "label": "View Residential Services",
+          "href": "/residential"
+        },
+        "list": [
+          "Kitchen & Bathroom Remodels",
+          "Interior & Exterior Painting",
+          "Decks, Patios & Outdoor Spaces",
+          "ADUs & Buildouts"
+        ]
+      },
+      {
+        "image": "/images/exterior-project.jpg",
+        "tag": "Exterior",
+        "headline": "Exteriors Made Simple",
+        "body": "Painting, coating, staining, elastomeric, epoxy — we offer the full spectrum of exterior services. Our team handles stucco repair, gutters, trim, block repair, and waterproofing to protect your investment.",
+        "reverse": true,
+        "dark": true,
+        "cta": {
+          "label": "Get a Quote",
+          "href": "/contact"
+        },
+        "list": [
+          "Exterior Painting & Staining",
+          "Elastomeric & Ceramic Coatings",
+          "Roof Coatings",
+          "Pressure Washing",
+          "Waterproofing"
+        ]
+      },
+      {
+        "image": "/images/commercial-project.jpg",
+        "tag": "Commercial",
+        "headline": "Make Your Large Project a Breeze",
+        "body": "HOAs, condominiums, complexes, and institutions trust Blackfin to deliver quality commercial painting and construction services on schedule and within budget across the entire Tampa Bay region.",
+        "reverse": false,
+        "dark": false,
+        "cta": {
+          "label": "Commercial Services",
+          "href": "/commercial"
+        },
+        "list": [
+          "Industrial Coating",
+          "Epoxy Floors",
+          "Commercial Exterior Painting",
+          "Large Complex Management"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "src": "/images/gallery-1.jpg",
+        "alt": "Residential painting project"
+      },
+      {
+        "src": "/images/gallery-7.jpg",
+        "alt": "Exterior project Tampa"
+      },
+      {
+        "src": "/images/gallery-8.jpg",
+        "alt": "Interior painting"
+      },
+      {
+        "src": "/images/gallery-9.jpg",
+        "alt": "Remodeling work"
+      },
+      {
+        "src": "/images/gallery-2.jpg",
+        "alt": "Cabinet painting"
+      },
+      {
+        "src": "/images/gallery-10.jpg",
+        "alt": "Residential exterior"
+      },
+      {
+        "src": "/images/commercial-gallery-1.jpg",
+        "alt": "Commercial painting"
+      },
+      {
+        "src": "/images/gallery-11.jpg",
+        "alt": "Before and after"
+      },
+      {
+        "src": "/images/commercial-gallery-2.jpg",
+        "alt": "Coating application"
+      }
+    ],
+    "title": "Home",
+    "description": "Tampa Bay finest painting and remodeling contractor. Residential, commercial, construction, and painting services across the entire Tampa Bay region.",
+    "galleryTag": "Latest Work",
+    "galleryTitle": "Check Out Our Projects",
+    "services": [
+      {
+        "title": "Residential Painting",
+        "subtitle": "Interior · Exterior · Cabinetry",
+        "description": "From bold accent walls to whole-home transformations, we bring precision and passion to every residential painting project.",
+        "icon": "/images/logo.jpg",
+        "href": "/residential",
+        "accent": "#97bcc7"
+      },
+      {
+        "title": "Commercial Painting",
+        "subtitle": "Paint · Coating · Epoxy & More",
+        "description": "We deliver commercial projects on time and within budget — HOAs, condos, complexes, and institutions across Tampa Bay.",
+        "icon": "/images/logo.jpg",
+        "href": "/commercial",
+        "accent": "#006884"
+      },
+      {
+        "title": "Construction & Remodel",
+        "subtitle": "Residential & Commercial",
+        "description": "Kitchens, bathrooms, outdoor spaces, ADUs — our construction team handles every facet of your remodeling vision.",
+        "icon": "/images/logo.jpg",
+        "href": "/residential",
+        "accent": "#bfa76a"
+      }
+    ]
+  },
+  "residential": {
+    "slides": [
+      {
+        "image": "/images/residential-hero.jpg",
+        "headline": "One Call Turns Your Old Home Into Your Dream Home",
+        "subheadline": "Interior and exterior residential contractor serving the entire Tampa Bay region with quality craftsmanship.",
+        "cta": {
+          "label": "Get Your Free Quote",
+          "href": "/contact"
+        }
+      },
+      {
+        "image": "/images/residential-project.jpg",
+        "headline": "Residential Painting & Remodeling",
+        "subheadline": "With years of experience in Tampa Bay, we understand the challenges homeowners face sourcing quality contractors.",
+        "cta": {
+          "label": "View Our Services",
+          "href": "#services"
+        }
+      }
+    ],
+    "features": [
+      {
+        "image": "/images/residential-project.jpg",
+        "tag": "Our Approach",
+        "headline": "Quality Craftsmanship, Every Time",
+        "body": "With many years of experience in construction and painting across Tampa Bay, we understand the challenges homeowners face. We source premium materials and bring dedicated craftsmanship to every project — large or small.",
+        "reverse": false,
+        "dark": false,
+        "cta": {
+          "label": "Request a Free Quote",
+          "href": "/contact"
+        },
+        "list": [
+          "Licensed & Insured",
+          "Premium Materials",
+          "On-Time Delivery",
+          "Clean Jobsite Guaranteed"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "src": "/images/residential-project.jpg",
+        "alt": "Residential project"
+      },
+      {
+        "src": "/images/gallery-8.jpg",
+        "alt": "Interior painting"
+      },
+      {
+        "src": "/images/gallery-9.jpg",
+        "alt": "Exterior painting"
+      },
+      {
+        "src": "/images/gallery-1.jpg",
+        "alt": "Cabinet painting"
+      },
+      {
+        "src": "/images/gallery-10.jpg",
+        "alt": "Bathroom remodel"
+      },
+      {
+        "src": "/images/gallery-11.jpg",
+        "alt": "Before and after"
+      },
+      {
+        "src": "/images/exterior-project.jpg",
+        "alt": "Exterior project"
+      },
+      {
+        "src": "/images/gallery-12.jpg",
+        "alt": "Deck and patio"
+      },
+      {
+        "src": "/images/gallery-7.jpg",
+        "alt": "Whole home repaint"
+      }
+    ],
+    "title": "Residential Painting & Remodeling",
+    "description": "Interior and exterior residential painting and remodeling services in Tampa Bay. Kitchens, bathrooms, decks, and whole-home transformations.",
+    "galleryTag": "Residential Portfolio",
+    "galleryTitle": "Recent Projects",
+    "services": [
+      {
+        "category": "Remodeling Services",
+        "items": [
+          "Kitchen & Bathroom Remodel",
+          "Outdoor Spaces",
+          "Decks & Patios",
+          "Buildouts",
+          "ADUs (Additional Dwelling Units)"
+        ]
+      },
+      {
+        "category": "Painting Services",
+        "items": [
+          "Interior Painting",
+          "Exterior Painting",
+          "Roof Coatings",
+          "Specialty & Waterproof Coatings",
+          "Pressure Washing"
+        ]
+      }
+    ]
+  },
+  "commercial": {
+    "slides": [
+      {
+        "image": "/images/commercial-hero-1.jpg",
+        "headline": "Commercial Painting & Construction",
+        "subheadline": "Delivering large-scale projects on time and within budget for HOAs, condos, complexes, and institutions across Tampa Bay.",
+        "cta": {
+          "label": "Get a Commercial Quote",
+          "href": "/contact"
+        }
+      },
+      {
+        "image": "/images/commercial-hero-2.jpg",
+        "headline": "Industrial Coating & Epoxy Specialists",
+        "subheadline": "From industrial coatings to epoxy floors, we bring professional-grade finishes to every commercial surface.",
+        "cta": {
+          "label": "Learn More",
+          "href": "/contact"
+        }
+      },
+      {
+        "image": "/images/commercial-hero-3.jpg",
+        "headline": "Make Your Large Project a Breeze",
+        "subheadline": "Our experienced team manages every facet of your commercial project so you can focus on your business.",
+        "cta": {
+          "label": "Contact Us Today",
+          "href": "/contact"
+        }
+      }
+    ],
+    "features": [
+      {
+        "image": "/images/commercial-project.jpg",
+        "tag": "Our Specialty",
+        "headline": "Trusted by HOAs, Condos & Complexes",
+        "body": "We understand that commercial clients need reliability. Our team delivers every project on schedule with minimal disruption to residents and operations. We work closely with property managers and boards to keep everything running smoothly.",
+        "reverse": false,
+        "dark": true,
+        "cta": {
+          "label": "Request a Commercial Quote",
+          "href": "/contact"
+        },
+        "list": [
+          "On-Time, On-Budget Delivery",
+          "Minimal Disruption",
+          "Licensed & Insured",
+          "Tampa Bay service area"
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "src": "/images/commercial-hero-1.jpg",
+        "alt": "Commercial painting project"
+      },
+      {
+        "src": "/images/commercial-gallery-1.jpg",
+        "alt": "ALF repaint Largo FL"
+      },
+      {
+        "src": "/images/commercial-hero-2.jpg",
+        "alt": "Industrial coating"
+      },
+      {
+        "src": "/images/commercial-gallery-2.jpg",
+        "alt": "Epoxy floor application"
+      },
+      {
+        "src": "/images/commercial-hero-3.jpg",
+        "alt": "Large commercial project"
+      },
+      {
+        "src": "/images/commercial-gallery-3.jpg",
+        "alt": "Exterior commercial paint"
+      },
+      {
+        "src": "/images/commercial-project.jpg",
+        "alt": "Complex painting"
+      },
+      {
+        "src": "/images/commercial-gallery-4.jpg",
+        "alt": "Before and after commercial"
+      }
+    ],
+    "title": "Commercial Painting & Construction",
+    "description": "Commercial painting, industrial coatings, epoxy floors, and construction services for HOAs, condos, and complexes in Tampa Bay.",
+    "galleryTag": "Commercial Portfolio",
+    "galleryTitle": "Recent Commercial Projects",
+    "services": [
+      {
+        "category": "Repair & Prep",
+        "items": [
+          "Stucco Repair",
+          "Gutters & Trim",
+          "Block Repair",
+          "Wood Repair"
+        ]
+      },
+      {
+        "category": "Cleaning & Coating",
+        "items": [
+          "Pressure Cleaning",
+          "Industrial Coating",
+          "Waterproofing",
+          "Exterior Painting"
+        ]
+      },
+      {
+        "category": "Specialty Finishes",
+        "items": [
+          "Elastomeric Coating",
+          "Ceramic Coating",
+          "Roof Coatings",
+          "Epoxy Floors"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "slides": [],
+    "features": [],
+    "gallery": [],
+    "title": "Contact Us",
+    "description": "Get a free quote from Blackfin Construction & Painting. Call (727) 330-6041 or submit our contact form."
+  }
+}
