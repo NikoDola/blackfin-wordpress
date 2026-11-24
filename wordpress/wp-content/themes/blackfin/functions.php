@@ -77,7 +77,10 @@ add_shortcode( 'blackfin_reviews', function () {
 add_shortcode( 'blackfin_instagram', function ( $attrs ) {
 	$attrs = shortcode_atts( array( 'feed' => 0 ), $attrs );
 	$id = absint( $attrs['feed'] );
-	$feed = $id && shortcode_exists( 'instagram-feed' ) ? do_shortcode( sprintf( '[instagram-feed feed="%d"]', $id ) ) : '';
+	if ( ! $id || ! shortcode_exists( 'instagram-feed' ) ) {
+		return '';
+	}
+	$feed = do_shortcode( sprintf( '[instagram-feed feed="%d"]', $id ) );
 	return '<section class="bf-detail-band bf-instagram"><div class="bf-detail-wrap"><h2 class="bf-detail-heading">Blackfin on Instagram</h2>'
 		. $feed . '<p class="bf-detail-link"><a href="https://www.instagram.com/blackfincon/">See project updates on Instagram</a></p></div></section>';
 } );

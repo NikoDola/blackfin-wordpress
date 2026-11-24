@@ -8,9 +8,18 @@
     "summary": "Plan additional living space, a buildout or an accessory dwelling unit.",
     "heading": "Making room for a different use",
     "sections": [
-      ["Additions", "Tell us what you hope to add and how the new space should connect to the existing home. A sketch of the rooms on either side of that connection can be as useful for a first conversation as a list of finishes."],
-      ["Buildouts", "If the space already exists, start with its current condition. An open shell and a finished room being put to a new use call for different work. Include photos of what is there today and describe who will use the space."],
-      ["Accessory dwelling units", "An accessory dwelling unit (ADU) is a separate living space on the same property as a main home. Include the project address and tell us whether you have an existing structure in mind or are exploring a new footprint."]
+      [
+        "Additions",
+        "Tell us what you hope to add and how the new space should connect to the existing home. A sketch of the rooms on either side of that connection can be as useful for a first conversation as a list of finishes."
+      ],
+      [
+        "Buildouts",
+        "If the space already exists, start with its current condition. An open shell and a finished room being put to a new use call for different work. Include photos of what is there today and describe who will use the space."
+      ],
+      [
+        "Accessory dwelling units",
+        "An accessory dwelling unit (ADU) is a separate living space on the same property as a main home. Include the project address and tell us whether you have an existing structure in mind or are exploring a new footprint."
+      ]
     ],
     "question": "What if I’m still working out the scope?",
     "answer": "Send the address, your goal and any drawings you already have. If you’re considering a ground-up build, say so in the inquiry so the team can confirm whether the project fits before you invest in a detailed estimate.",
@@ -25,9 +34,18 @@
     "summary": "Rethink kitchens, bathrooms and the spaces that connect them.",
     "heading": "Choose the starting point for your remodel",
     "sections": [
-      ["Kitchens", "Start with how you cook and move through the room. Let us know whether you want to keep the cabinet layout, move a work surface or connect the kitchen to an adjoining space."],
-      ["Bathrooms", "A new shower layout can change where the vanity, storage and entry door fit. Photos of the existing room help the team understand those relationships before discussing tile, fixtures and finishes."],
-      ["Whole homes and outdoor spaces", "For a project spanning several rooms, a deck or a patio, list the spaces in order of priority. Tell us which areas you need to keep using while the work is underway."]
+      [
+        "Kitchens",
+        "Start with how you cook and move through the room. Let us know whether you want to keep the cabinet layout, move a work surface or connect the kitchen to an adjoining space."
+      ],
+      [
+        "Bathrooms",
+        "A new shower layout can change where the vanity, storage and entry door fit. Photos of the existing room help the team understand those relationships before discussing tile, fixtures and finishes."
+      ],
+      [
+        "Whole homes and outdoor spaces",
+        "For a project spanning several rooms, a deck or a patio, list the spaces in order of priority. Tell us which areas you need to keep using while the work is underway."
+      ]
     ],
     "question": "What should I send for a remodeling quote?",
     "answer": "Include your city, photos of the space and the changes you want to make. Separate the items you already know you need from the ideas you’re still considering. That gives the team a clearer starting point for discussing scope.",
@@ -37,34 +55,62 @@
     "title": "Interior Painting",
     "description": "Plan an interior repaint in Tampa Bay with Blackfin. Explore wall, trim and cabinetry finishes and see what to include in a room-by-room quote request.",
     "intro": "Walls, trim and cabinetry get different kinds of wear. Blackfin helps Tampa Bay homeowners plan interior painting around the surfaces they want refreshed and the way each room is used.",
-    "image": "gallery-8.jpg",
-    "alt": "Room prepared for painting with the floor and walls covered in protective sheeting",
+    "image": "commercial-gallery-1.jpg",
+    "alt": "Bright room with painted walls, white trim and wood-look flooring",
     "summary": "Refresh walls, trim and cabinetry, from a single room to the whole home.",
     "heading": "Look at the room surface by surface",
     "sections": [
-      ["Walls and ceilings", "Start with the rooms you want painted and whether ceilings are included. Point out accent walls, patched areas or strong existing colors that you want covered."],
-      ["Trim and cabinetry", "Doors, baseboards and cabinet fronts see more handling than most walls. List these separately in your request, with photos of the current finish and any areas showing wear."],
-      ["Working in an occupied space", "Tell us which rooms, doorways and pieces of furniture will stay in use. For an occupied office or a shared building, include access hours and the person who can coordinate entry."]
+      [
+        "Walls and ceilings",
+        "Start with the rooms you want painted and whether ceilings are included. Point out accent walls, patched areas or strong existing colors that you want covered."
+      ],
+      [
+        "Trim and cabinetry",
+        "Doors, baseboards and cabinet fronts see more handling than most walls. List these separately in your request, with photos of the current finish and any areas showing wear."
+      ],
+      [
+        "Working in an occupied space",
+        "Tell us which rooms, doorways and pieces of furniture will stay in use. For an occupied office or a shared building, include access hours and the person who can coordinate entry."
+      ]
     ],
     "question": "Can I request a quote before choosing colors?",
     "answer": "Yes. Start with the rooms and surfaces you want painted. Mention any big changes, such as a dark wall going light or cabinet fronts changing finish, so the team can discuss the preparation involved.",
-    "related": "exterior-painting"
+    "related": "exterior-painting",
+    "prep": {
+      "image": "gallery-8.jpg",
+      "alt": "Ladder and protective sheeting in a room being prepared for painting",
+      "caption": "Interior surface preparation and floor protection"
+    }
   },
   "exterior-painting": {
     "title": "Exterior Painting",
     "description": "Explore Blackfin’s exterior painting, prep and coating services for homes, commercial properties and associations across Tampa Bay.",
     "intro": "An exterior repaint starts with what is already on the building. Blackfin’s Tampa Bay work includes exterior painting, staining and specialty coatings for homes, commercial properties and community associations.",
-    "image": "commercial-project.jpg",
-    "alt": "Crew working from scaffolding along the exterior of a commercial building",
+    "image": "exterior-project.jpg",
+    "alt": "Stucco house with an arched entrance and palm trees",
     "summary": "Plan surface preparation, painting and coatings for your property.",
     "heading": "What goes into the exterior scope?",
     "sections": [
-      ["Surface preparation and repairs", "Share photos of peeling paint, damaged trim or cracks in stucco. The scope can include pressure cleaning and repairs to stucco, block or wood before a new finish goes on."],
-      ["Paint, stain and specialty coatings", "Identify what is being finished, from painted masonry to exposed wood. Blackfin’s services include exterior paint, staining, elastomeric coatings and waterproof coatings. The surface and its condition guide the discussion."],
-      ["Commercial and association properties", "For a storefront, condominium or multi-building property, include the number of buildings and any entrances that need to stay open. Let us know who coordinates access for tenants or residents."]
+      [
+        "Surface preparation and repairs",
+        "Share photos of peeling paint, damaged trim or cracks in stucco. The scope can include pressure cleaning and repairs to stucco, block or wood before a new finish goes on."
+      ],
+      [
+        "Paint, stain and specialty coatings",
+        "Identify what is being finished, from painted masonry to exposed wood. Blackfin’s services include exterior paint, staining, elastomeric coatings and waterproof coatings. The surface and its condition guide the discussion."
+      ],
+      [
+        "Commercial and association properties",
+        "For a storefront, condominium or multi-building property, include the number of buildings and any entrances that need to stay open. Let us know who coordinates access for tenants or residents."
+      ]
     ],
     "question": "What information helps with an exterior estimate?",
     "answer": "Include the property address, building type and photos from more than one side. Close-ups of worn areas help explain the prep work, while wider views show height, access and nearby landscaping.",
-    "related": "interior-painting"
+    "related": "interior-painting",
+    "prep": {
+      "image": "commercial-project.jpg",
+      "alt": "Scaffolding along the Abbey Carpet storefront",
+      "caption": "Scaffolding set up for storefront exterior work"
+    }
   }
 }

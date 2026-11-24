@@ -3,8 +3,8 @@
     "slides": [
       {
         "image": "/images/hero-bg.webp",
-        "headline": "Tampa Bay's Finest Painting & Remodeling",
-        "subheadline": "Leverage our years of proven experience to make your residential or commercial project the best it can be.",
+        "headline": "Construction & Painting in Tampa Bay",
+        "subheadline": "Remodeling, additions and painting for homes and commercial properties.",
         "cta": {
           "label": "Get a Free Quote!",
           "href": "/contact"
@@ -88,46 +88,25 @@
     ],
     "gallery": [
       {
-        "src": "/images/gallery-1.jpg",
-        "alt": "Residential painting project"
-      },
-      {
-        "src": "/images/gallery-7.jpg",
-        "alt": "Exterior project Tampa"
-      },
-      {
-        "src": "/images/gallery-8.jpg",
-        "alt": "Interior painting"
-      },
-      {
         "src": "/images/gallery-9.jpg",
-        "alt": "Remodeling work"
+        "alt": "White kitchen cabinets and a wide central island",
+        "caption": "Open kitchen remodel"
       },
       {
-        "src": "/images/gallery-2.jpg",
-        "alt": "Cabinet painting"
+        "src": "/images/residential-project.jpg",
+        "alt": "Blue-gray vanity next to a glass-enclosed shower",
+        "caption": "Bathroom remodel with a walk-in shower"
       },
       {
-        "src": "/images/gallery-10.jpg",
-        "alt": "Residential exterior"
-      },
-      {
-        "src": "/images/commercial-gallery-1.jpg",
-        "alt": "Commercial painting"
-      },
-      {
-        "src": "/images/gallery-11.jpg",
-        "alt": "Before and after"
-      },
-      {
-        "src": "/images/commercial-gallery-2.jpg",
-        "alt": "Coating application"
+        "src": "/images/exterior-project.jpg",
+        "alt": "Stucco house with an arched entrance and palm trees",
+        "caption": "Stucco exterior and entry trim"
       }
     ],
     "title": "Home",
     "description": "Tampa Bay finest painting and remodeling contractor. Residential, commercial, construction, and painting services across the entire Tampa Bay region.",
-    "galleryTag": "Latest Work",
-    "galleryTitle": "Check Out Our Projects",
+    "galleryTag": "",
+    "galleryTitle": "Selected projects",
     "services": [
       {
         "title": "Residential Painting",
@@ -158,9 +137,9 @@
   "residential": {
     "slides": [
       {
-        "image": "/images/residential-hero.jpg",
-        "headline": "One Call Turns Your Old Home Into Your Dream Home",
-        "subheadline": "Interior and exterior residential contractor serving the entire Tampa Bay region with quality craftsmanship.",
+        "image": "/images/residential-project.jpg",
+        "headline": "Residential Painting & Remodeling",
+        "subheadline": "Interior and exterior painting, kitchens, bathrooms and home improvements across Tampa Bay.",
         "cta": {
           "label": "Get Your Free Quote",
           "href": "/contact"
@@ -168,7 +147,7 @@
       },
       {
         "image": "/images/residential-project.jpg",
-        "headline": "Residential Painting & Remodeling",
+        "headline": "Plan Your Home Remodel",
         "subheadline": "With years of experience in Tampa Bay, we understand the challenges homeowners face sourcing quality contractors.",
         "cta": {
           "label": "View Our Services",
@@ -199,39 +178,38 @@
     "gallery": [
       {
         "src": "/images/residential-project.jpg",
-        "alt": "Residential project"
-      },
-      {
-        "src": "/images/gallery-8.jpg",
-        "alt": "Interior painting"
+        "alt": "Blue-gray vanity next to a glass-enclosed shower",
+        "caption": "Bathroom remodel with a walk-in shower"
       },
       {
         "src": "/images/gallery-9.jpg",
-        "alt": "Exterior painting"
-      },
-      {
-        "src": "/images/gallery-1.jpg",
-        "alt": "Cabinet painting"
-      },
-      {
-        "src": "/images/gallery-10.jpg",
-        "alt": "Bathroom remodel"
-      },
-      {
-        "src": "/images/gallery-11.jpg",
-        "alt": "Before and after"
+        "alt": "White kitchen cabinets and a wide central island",
+        "caption": "Open kitchen remodel"
       },
       {
         "src": "/images/exterior-project.jpg",
-        "alt": "Exterior project"
-      },
-      {
-        "src": "/images/gallery-12.jpg",
-        "alt": "Deck and patio"
+        "alt": "Stucco house with an arched entrance and palm trees",
+        "caption": "Stucco exterior and entry trim"
       },
       {
         "src": "/images/gallery-7.jpg",
-        "alt": "Whole home repaint"
+        "alt": "Single-story house with white siding and darker trim",
+        "caption": "Siding and trim on a single-story home"
+      },
+      {
+        "src": "/images/gallery-12.jpg",
+        "alt": "Two-story stucco home with dark window trim",
+        "caption": "Stucco and trim on a two-story home"
+      },
+      {
+        "src": "/images/gallery-8.jpg",
+        "alt": "Ladder and protective sheeting in a room being prepared for painting",
+        "caption": "Interior surface preparation and floor protection"
+      },
+      {
+        "src": "/images/gallery-11.jpg",
+        "alt": "Side entrance and paved walkway alongside a gray house",
+        "caption": "Side entry and exterior work in progress"
       }
     ],
     "title": "Residential Painting & Remodeling",
@@ -313,36 +291,39 @@
     ],
     "gallery": [
       {
-        "src": "/images/commercial-hero-1.jpg",
-        "alt": "Commercial painting project"
-      },
-      {
         "src": "/images/commercial-gallery-1.jpg",
-        "alt": "ALF repaint Largo FL"
-      },
-      {
-        "src": "/images/commercial-hero-2.jpg",
-        "alt": "Industrial coating"
-      },
-      {
-        "src": "/images/commercial-gallery-2.jpg",
-        "alt": "Epoxy floor application"
-      },
-      {
-        "src": "/images/commercial-hero-3.jpg",
-        "alt": "Large commercial project"
+        "alt": "Bright room with painted walls, white trim and wood-look flooring",
+        "caption": "Painted interior and white trim"
       },
       {
         "src": "/images/commercial-gallery-3.jpg",
-        "alt": "Exterior commercial paint"
-      },
-      {
-        "src": "/images/commercial-project.jpg",
-        "alt": "Complex painting"
+        "alt": "Low-rise building with a red awning against a blue sky",
+        "caption": "Commercial frontage and red awning"
       },
       {
         "src": "/images/commercial-gallery-4.jpg",
-        "alt": "Before and after commercial"
+        "alt": "Tall building exterior with a cross above the roofline",
+        "caption": "Institutional building exterior"
+      },
+      {
+        "src": "/images/commercial-gallery-2.jpg",
+        "alt": "Two exterior views of a building with vertical siding",
+        "caption": "Two views of a commercial exterior"
+      },
+      {
+        "src": "/images/commercial-hero-1.jpg",
+        "alt": "Boom lift alongside a tall building",
+        "caption": "Lift access for exterior work"
+      },
+      {
+        "src": "/images/commercial-hero-3.jpg",
+        "alt": "Two people standing beside a raised boom lift",
+        "caption": "Crew and lift on site"
+      },
+      {
+        "src": "/images/commercial-project.jpg",
+        "alt": "Scaffolding along the Abbey Carpet storefront",
+        "caption": "Scaffolding set up for storefront exterior work"
       }
     ],
     "title": "Commercial Painting & Construction",

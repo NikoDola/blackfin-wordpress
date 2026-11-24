@@ -2,7 +2,7 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const header = document.querySelector('.bf-nav-header');
   const toggle = header?.querySelector('[data-menu-toggle]');
-  const menu = header?.querySelector('.bf-nav-desktopNav');
+  const menu = header?.querySelector('.bf-nav-menuWrap');
   const synchronizeHeader = () => { if (header) header.dataset.scrolled = String(window.scrollY > 20); };
 
   if (header) {
@@ -21,7 +21,24 @@
     };
     setOpen(false);
     toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
-    menu.addEventListener('click', event => { if (event.target.closest('a')) setOpen(false); });
+    menu.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link || !mobile.matches) return;
+      setOpen(false);
+      if (link.pathname === location.pathname && link.hash) {
+        const section = document.getElementById(link.hash.slice(1));
+        if (section) {
+          section.tabIndex = -1;
+          section.focus({ preventScroll: true });
+          return;
+        }
+      }
+      toggle.focus({ preventScroll: true });
+    });
+    header.addEventListener('focusout', event => {
+      if (!header.contains(event.relatedTarget) ||
+          (!menu.contains(event.relatedTarget) && event.relatedTarget !== toggle)) setOpen(false);
+    });
     header.addEventListener('keydown', event => {
       if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
         setOpen(false);
@@ -138,6 +155,17 @@
       result.hidden = false;
       result.querySelector('button')?.focus();
     }
+  });
+
+  document.addEventListener('wpcf7invalid', event => {
+    const panel = event.target.closest('.bf-quote-formPanel');
+    if (!panel) return;
+    requestAnimationFrame(() => {
+      const invalid = panel.querySelector('[aria-invalid="true"]:not([type="hidden"])');
+      if (!invalid) return;
+      invalid.focus({ preventScroll: true });
+      invalid.scrollIntoView({ block: 'center', behavior: 'instant' });
+    });
   });
 
   for (const button of document.querySelectorAll('[data-quote-reset]')) {

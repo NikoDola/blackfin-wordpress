@@ -18,6 +18,7 @@ if ( 'blackfin' !== get_stylesheet() || ! class_exists( 'WPCF7_ContactForm' ) ) 
 require_once __DIR__ . '/blocks.php';
 require_once __DIR__ . '/service-blocks.php';
 require_once __DIR__ . '/expand-site.php';
+require_once __DIR__ . '/refine-site.php';
 require_once ABSPATH . 'wp-admin/includes/file.php';
 require_once ABSPATH . 'wp-admin/includes/media.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
@@ -126,6 +127,7 @@ function bf_hide_starter_content() {
 }
 
 $pages = json_decode( file_get_contents( __DIR__ . '/pages.json' ), true, 512, JSON_THROW_ON_ERROR );
+$services = json_decode( file_get_contents( __DIR__ . '/services.json' ), true, 512, JSON_THROW_ON_ERROR );
 $media = bf_import_photos( $workspace . '/blackfin-reference/public/images' );
 update_option( 'blackfin_quote_form_id', bf_quote_form_id() );
 $quote = bf_insert_once( 'wp_block', 'blackfin-quote-section', 'Blackfin Quote Section', bf_quote_section() );
@@ -136,9 +138,12 @@ foreach ( $routes as $route => $title ) {
 	$page = $pages[ $route ];
 	if ( 'contact' === $route ) {
 		$content = bf_contact_hero();
+	} elseif ( 'home' === $route ) {
+		$content = bf_hero( $page['slides'], $media, '/#blackfin-services' ) . bf_service_directory( $services, $media )
+			. bf_gallery( $page, $media, true ) . bf_home_overview_links()
+			. bf_block( 'shortcode', '[blackfin_reviews]' ) . bf_block( 'shortcode', '[blackfin_instagram]' );
 	} else {
-		$content = bf_hero( $page['slides'], $media );
-		$content .= 'home' === $route ? bf_home_services( $page['services'], $media ) : bf_service_lists( $route, $page['services'] );
+		$content = bf_hero( $page['slides'], $media, '#services' ) . bf_service_lists( $route, $page['services'] );
 		foreach ( $page['features'] as $feature ) {
 			$content .= bf_feature( $feature, $media );
 		}
@@ -188,7 +193,6 @@ foreach ( $routes as $route => $title ) {
 }
 $menu = bf_insert_once( 'wp_navigation', 'blackfin-main', 'Blackfin Main Menu', $navigation );
 update_option( 'blackfin_navigation_id', $menu );
-$services = json_decode( file_get_contents( __DIR__ . '/services.json' ), true, 512, JSON_THROW_ON_ERROR );
 foreach ( $services as $slug => $service ) {
 	$ids[ $slug ] = bf_insert_once( 'page', $slug, $service['title'], bf_service_page( $slug, $services, $media ),
 		array( '_blackfin_description' => $service['description'] ) );
@@ -198,8 +202,8 @@ $ids['about-us'] = bf_insert_once( 'page', 'about-us', 'About Us', bf_about_page
 add_post_meta( $policy, '_blackfin_description', 'Read how Blackfin Construction & Painting handles information collected through its website.', true );
 $review_template = bf_block( 'quote', '<blockquote class="wp-block-quote">' . bf_text( '' ) . '</blockquote>' );
 update_option( 'blackfin_reviews_pattern_id', bf_insert_once( 'wp_block', 'blackfin-google-reviews', 'Blackfin Selected Google Reviews', $review_template ) );
-foreach ( array( 'home', 'residential', 'commercial' ) as $route ) {
-	bf_expand_overview( $ids[ $route ], $route, $services, $media, bf_home_services( $pages['home']['services'], $media ) );
+foreach ( array( 'residential', 'commercial' ) as $route ) {
+	bf_expand_overview( $ids[ $route ], $route, $services );
 }
 bf_expand_menu( $menu, $ids, $services );
 $commercial_content = get_post_field( 'post_content', $ids['commercial'], 'raw' );
@@ -207,6 +211,7 @@ $old_claim = '<li>' . esc_html( "Tampa Bay's #1 Commercial Contractor" ) . '</li
 if ( str_contains( $commercial_content, $old_claim ) ) {
 	bf_apply_expansion( $ids['commercial'], str_replace( $old_claim, '<li>Tampa Bay service area</li>', $commercial_content ) );
 }
+bf_refine_site( $ids, $quote, $pages, $services, $media );
 update_option( 'blackfin_seeded', '1' );
 WP_CLI::success( sprintf( 'Blackfin content available: %d images, %d pages, 1 shared quote section.', count( $media ), count( $ids ) + 1 ) );
 

@@ -11,42 +11,25 @@ function bf_apply_expansion( $id, $content ) {
 	update_post_meta( $id, '_blackfin_service_expansion', 1 );
 }
 
-function bf_expand_overview( $id, $route, $services, $media, $original_cards ) {
+function bf_expand_overview( $id, $route, $services ) {
 	if ( get_post_meta( $id, '_blackfin_service_expansion', true ) ) {
 		return;
 	}
 	$blocks = parse_blocks( get_post_field( 'post_content', $id, 'raw' ) );
 	$expanded = '';
 	$links_added = false;
-	$community = 'home' === $route ? bf_block( 'shortcode', '[blackfin_reviews]' ) . bf_block( 'shortcode', '[blackfin_instagram]' ) : '';
 	$slugs = 'commercial' === $route ? array( 'exterior-painting', 'interior-painting' ) : array_keys( $services );
-	$directory = 'home' === $route ? bf_service_directory( $services, $media )
-		: bf_service_links( $slugs, $services, 'Explore ' . $route . ' services' );
+	$directory = bf_service_links( $slugs, $services, 'Explore ' . $route . ' services' );
 	foreach ( $blocks as $block ) {
 		$html = serialize_block( $block );
 		$class = $block['attrs']['className'] ?? '';
-		if ( 'bf-hero-section' === $class ) {
-			$html = str_replace( bf_link( bf_url( '/residential' ), 'Our Services', 'wp-block-button__link wp-element-button' ),
-				bf_link( bf_url( '/#blackfin-services' ), 'Our Services', 'wp-block-button__link wp-element-button' ), $html );
-		}
-		if ( 'home' === $route && 'bf-services-section' === $class ) {
-			// Replace only the unedited reference cards. Keep a customized overview alongside the new directory.
-			if ( preg_replace( '/>\s+</', '><', trim( $html ) ) === preg_replace( '/>\s+</', '><', trim( $original_cards ) ) ) {
-				$html = '';
-			}
+		if ( in_array( $class, array( 'bf-res-servicesSection', 'bf-commercial-servicesSection' ), true ) ) {
 			$html .= $directory;
 			$links_added = true;
-		} elseif ( in_array( $class, array( 'bf-res-servicesSection', 'bf-commercial-servicesSection' ), true ) ) {
-			$html .= $directory;
-			$links_added = true;
-		}
-		if ( 'core/block' === $block['blockName'] && $community ) {
-			$html = $community . $html;
-			$community = '';
 		}
 		$expanded .= $html;
 	}
-	bf_apply_expansion( $id, $expanded . ( $links_added ? '' : $directory ) . $community );
+	bf_apply_expansion( $id, $expanded . ( $links_added ? '' : $directory ) );
 }
 
 function bf_expand_menu( $menu, $ids, $services ) {

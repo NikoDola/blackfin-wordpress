@@ -6,7 +6,7 @@ The [Blackfin block theme](wp-content/themes/blackfin/) contains the templates, 
 
 ## Amanda’s review copy
 
-The local homepage lists four services. Each has an editable WordPress page, its own project image, a scope overview, a customer question and a quote link. The About page lists the 12 communities from the original site. All ten pages are published to localhost for review. The source copy for a fresh install is in [services.json](../blackfin-content/services.json) and [service-blocks.php](../blackfin-content/service-blocks.php).
+The local homepage lists four services, followed by three captioned project photos. Each service has an editable WordPress page, its own project image, a scope overview, a customer question and a link that opens the quote form with the project type filled in. The About page lists the 12 communities from the original site. All ten pages are published to localhost for review. The source copy for a fresh install is in [services.json](../blackfin-content/services.json) and [service-blocks.php](../blackfin-content/service-blocks.php).
 
 | Page | What to confirm |
 | --- | --- |
@@ -22,7 +22,7 @@ In Appearance → Editor → Patterns, open **Blackfin Selected Google Reviews**
 
 ### Recent Instagram posts
 
-The local install includes Smash Balloon Social Photo Feed. The homepage currently links to Blackfin’s established Instagram profile. To turn on the timeline, the account owner connects the business account under **Instagram Feed → Settings → Manage Sources**. Under **All Feeds**, create a User Timeline, select the source and order it newest first. Copy the feed ID from the Embed dialog. Edit the homepage Shortcode block from `[blackfin_instagram]` to `[blackfin_instagram feed="ID"]`, replacing ID with that number. Check that recent posts load on mobile and that a later post appears after the provider’s cache refreshes. [Provider instructions](https://smashballoon.com/doc/display-multiple-instagram-feeds/)
+The local install includes Smash Balloon Social Photo Feed. The footer links to Blackfin’s Instagram profile, and the homepage feed stays hidden until it has a configured ID. To turn on the timeline, the account owner connects the business account under **Instagram Feed → Settings → Manage Sources**. Under **All Feeds**, create a User Timeline, select the source and order it newest first. Copy the feed ID from the Embed dialog. Edit the homepage Shortcode block from `[blackfin_instagram]` to `[blackfin_instagram feed="ID"]`, replacing ID with that number. Check that recent posts load on mobile and that a later post appears after the provider’s cache refreshes. [Provider instructions](https://smashballoon.com/doc/display-multiple-instagram-feeds/)
 
 ### Handoff to Blackfin’s maintenance team
 

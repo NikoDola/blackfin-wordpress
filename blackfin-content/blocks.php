@@ -44,7 +44,17 @@ function bf_url( $path ) {
 		return $path;
 	}
 	$parts = explode( '#', $path, 2 );
-	return home_url( trailingslashit( $parts[0] ) ) . ( isset( $parts[1] ) ? '#' . $parts[1] : '' );
+	$path_and_query = explode( '?', $parts[0], 2 );
+	$url = home_url( trailingslashit( $path_and_query[0] ) );
+	if ( isset( $path_and_query[1] ) ) {
+		$url .= '?' . $path_and_query[1];
+	}
+	return $url . ( isset( $parts[1] ) ? '#' . $parts[1] : '' );
+}
+
+function bf_quote_path( $project = '' ) {
+	$query = $project ? '?your-subject=' . rawurlencode( $project ) : '';
+	return '/contact/' . $query . '#request-a-quote';
 }
 
 function bf_button( $label, $path, $variant = 'primary', $size = 'md' ) {
@@ -57,14 +67,15 @@ function bf_buttons( $classes, $buttons ) {
 	return bf_block( 'buttons', "<div class=\"wp-block-buttons $classes\">\n$buttons</div>", array( 'className' => $classes ) );
 }
 
-function bf_image( $attachment, $alt, $classes = '', $size = 'full' ) {
+function bf_image( $attachment, $alt, $classes = '', $size = 'full', $caption = '' ) {
 	$url = esc_url( wp_get_attachment_image_url( $attachment, $size ) );
 	$alt = esc_attr( $alt );
 	$classes = trim( $classes );
 	$custom = $classes ? " $classes" : '';
+	$caption = $caption ? '<figcaption class="wp-element-caption">' . esc_html( $caption ) . '</figcaption>' : '';
 	return bf_block(
 		'image',
-		"<figure class=\"wp-block-image size-$size$custom\"><img src=\"$url\" alt=\"$alt\" class=\"wp-image-$attachment\"/></figure>",
+		"<figure class=\"wp-block-image size-$size$custom\"><img src=\"$url\" alt=\"$alt\" class=\"wp-image-$attachment\"/>$caption</figure>",
 		array( 'id' => $attachment, 'sizeSlug' => $size, 'linkDestination' => 'none', 'className' => $classes )
 	);
 }
@@ -81,16 +92,16 @@ function bf_list( $items, $classes ) {
 	return bf_block( 'list', "<ul class=\"wp-block-list $classes\">\n$markup</ul>", array( 'className' => $classes ) );
 }
 
-function bf_hero( $slides, $media ) {
+function bf_hero( $slides, $media, $services_path ) {
 	$markup = '';
 	$dots = '';
 	foreach ( $slides as $index => $slide ) {
-		$image = bf_image( bf_image_id( $slide['image'], $media ), $slide['headline'], 'bf-hero-bgImg' );
+		$image = bf_image( bf_image_id( $slide['image'], $media ), '', 'bf-hero-bgImg' );
 		$bg = bf_group( 'bf-hero-bgLayer', bf_group( 'bf-hero-bgSlide', $image ) );
-		$cta = bf_button( $slide['cta']['label'], $slide['cta']['href'], 'primary', 'lg' )
-			. bf_button( 'Our Services', '/residential', 'lightOutline', 'lg' );
-		$copy = bf_text( 'Construction &amp; Painting Specialists', 'bf-hero-badge' )
-			. bf_heading( $slide['headline'], 'bf-hero-headline', 0 === $index ? 1 : 2 )
+		$path = '/contact' === $slide['cta']['href'] ? bf_quote_path() : $slide['cta']['href'];
+		$cta = bf_button( $slide['cta']['label'], $path, 'primary', 'lg' )
+			. bf_button( 'Our Services', $services_path, 'lightOutline', 'lg' );
+		$copy = bf_heading( $slide['headline'], 'bf-hero-headline', 0 === $index ? 1 : 2 )
 			. bf_text( esc_html( $slide['subheadline'] ), 'bf-hero-subheadline' )
 			. bf_buttons( 'bf-hero-ctaRow', $cta );
 		$markup .= bf_group( 'bf-hero-slide', $bg . bf_html( '<div class="bf-hero-overlay" aria-hidden="true"></div>' )
@@ -104,26 +115,7 @@ function bf_hero( $slides, $media ) {
 		. '</button><div class="bf-hero-dots">' . $dots
 		. '<button type="button" class="bf-hero-pause" data-carousel-pause aria-pressed="false" aria-label="Pause automatic slides">'
 		. blackfin_icon( 'pause', 14 ) . blackfin_icon( 'play', 14 ) . '</button></div>';
-	$scroll = '<div class="bf-hero-scrollIndicator" aria-hidden="true"><div class="bf-hero-scrollLine"></div><span class="bf-hero-scrollText">SCROLL</span></div>';
-	return bf_group( 'bf-hero-section', $markup . bf_html( '<div class="bf-hero-controls">' . $controls . '</div>' . $scroll ), 'section' );
-}
-
-function bf_home_services( $services, $media ) {
-	$cards = '';
-	$colors = array( '#97bcc7' => 'blue', '#006884' => 'teal', '#bfa76a' => 'warm' );
-	foreach ( $services as $service ) {
-		$img = bf_image( bf_image_id( $service['icon'], $media ), $service['title'], 'bf-services-iconImg', 'thumbnail' );
-		$label = 'Learn more';
-		$content = bf_group( 'bf-services-iconWrap', $img )
-			. bf_heading( $service['title'], 'bf-services-cardTitle', 3 )
-			. bf_text( esc_html( $service['subtitle'] ), 'bf-services-cardSubtitle' )
-			. bf_text( esc_html( $service['description'] ), 'bf-services-cardDesc' )
-			. bf_text( str_replace( '</a>', ' ' . blackfin_icon( 'arrow', 14 ) . '</a>', bf_link( bf_url( $service['href'] ), $label ) ), 'bf-services-cardMore' );
-		$cards .= bf_group( 'bf-services-card bf-services-' . $colors[ $service['accent'] ], $content );
-	}
-	$heading = bf_text( 'What We Do', 'bf-services-tag' ) . bf_heading( 'Our Services', 'bf-services-title' );
-	$content = bf_group( 'bf-services-header', $heading ) . bf_group( 'bf-services-grid', $cards );
-	return bf_group( 'bf-services-section', bf_group( 'container', $content ), 'section' );
+	return bf_group( 'bf-hero-section', $markup . bf_html( '<div class="bf-hero-controls" aria-label="Slideshow controls" role="group">' . $controls . '</div>' ), 'section' );
 }
 
 function bf_service_lists( $name, $services ) {
@@ -139,7 +131,7 @@ function bf_service_lists( $name, $services ) {
 	}
 	$header = 'commercial' === $name ? bf_group( 'bf-commercial-header',
 		bf_text( 'Commercial Services', 'bf-commercial-tag' ) . bf_heading( 'Full-Scope Commercial Solutions', 'bf-commercial-title' ) ) : '';
-	$anchor = 'residential' === $name ? 'services' : '';
+	$anchor = 'services';
 	return bf_group( "bf-$prefix-servicesSection", bf_group( 'container', $header
 		. bf_group( "bf-$prefix-grid", $cards ) ), 'section', $anchor );
 }
@@ -152,35 +144,34 @@ function bf_feature( $feature, $media ) {
 		. bf_heading( $feature['headline'], "bf-feature-headline bf-feature-headline$mode" )
 		. bf_text( esc_html( $feature['body'] ), "bf-feature-body bf-feature-body$mode" )
 		. bf_list( $feature['list'], "bf-feature-list bf-feature-listText$mode" )
-		. bf_buttons( 'bf-feature-cta', bf_button( $feature['cta']['label'], $feature['cta']['href'], $feature['dark'] ? 'tealOutline' : 'primary' ) );
+		. bf_buttons( 'bf-feature-cta', bf_button( $feature['cta']['label'], '/contact' === $feature['cta']['href'] ? bf_quote_path() : $feature['cta']['href'],
+			$feature['dark'] ? 'tealOutline' : 'primary' ) );
 	$inner = 'bf-feature-inner' . ( $feature['reverse'] ? ' bf-feature-innerReverse' : '' );
 	return bf_group( 'bf-feature-section bf-feature-' . strtolower( $mode ),
 		bf_group( $inner, $left . bf_group( 'bf-feature-textWrap', $right ) ), 'section' );
 }
 
-function bf_gallery( $page, $media ) {
-	$heading = bf_text( esc_html( $page['galleryTag'] ), 'bf-gallery-tag' ) . bf_heading( $page['galleryTitle'], 'bf-gallery-title' );
+function bf_gallery( $page, $media, $featured = false ) {
+	$heading = $page['galleryTag'] ? bf_text( esc_html( $page['galleryTag'] ), 'bf-gallery-tag' ) : '';
+	$heading .= bf_heading( $page['galleryTitle'], 'bf-gallery-title' );
 	$photos = '';
 	foreach ( $page['gallery'] as $photo ) {
-		$photos .= bf_group( 'bf-gallery-item', bf_image( bf_image_id( $photo['src'], $media ), $photo['alt'], 'bf-gallery-img', 'large' ) );
+		$photos .= bf_group( 'bf-gallery-item', bf_image( bf_image_id( $photo['src'], $media ), $photo['alt'], 'bf-gallery-img', 'large', $photo['caption'] ) );
 	}
-	return bf_group( 'bf-gallery-section', bf_group( 'container',
+	return bf_group( $featured ? 'bf-gallery-section bf-gallery-featured' : 'bf-gallery-section', bf_group( 'container',
 		bf_group( 'bf-gallery-header', $heading ) . bf_group( 'bf-gallery-grid', $photos ) ), 'section' );
 }
 
 function bf_contact_hero() {
 	return bf_group( 'bf-contact-pageHero',
-		bf_text( 'We’re Here to Help', 'bf-contact-eyebrow' )
-		. bf_heading( 'Contact Us', 'bf-contact-heroTitle', 1 )
-		. bf_text( 'Call us at ' . bf_link( 'tel:+17273306041', '(727) 330-6041', 'bf-contact-phoneLink' )
-			. " or submit the form below and we'll get back to you with a free quote.", 'bf-contact-heroBody' ) );
+		bf_heading( 'Contact Us', 'bf-contact-heroTitle', 1 ) );
 }
 
 function bf_quote_section() {
-	$heading = bf_text( 'Get in Touch', 'bf-quote-tag' ) . bf_heading( 'Request a Free Quote', 'bf-quote-title' );
+	$heading = bf_heading( 'Request a Free Quote', 'bf-quote-title' )
+		. bf_text( 'Prefer to call? ' . bf_link( 'tel:+17273306041', '(727) 330-6041', 'bf-quote-phone' ), 'bf-quote-intro' );
 	$cards = '';
 	$details = array(
-		array( 'phone', 'Call Us', '(727) 330-6041', 'tel:+17273306041' ),
 		array( 'mail', 'Email', 'info@blackfincon.com', 'mailto:info@blackfincon.com' ),
 		array( 'pin', 'Service Area', 'Entire Tampa Bay Region', '' ),
 	);
@@ -194,6 +185,6 @@ function bf_quote_section() {
 		. '<button type="button" class="bf-button-btn bf-button-outline bf-button-md" data-quote-reset>Send Another</button></div>';
 	$form = bf_block( 'shortcode', '[blackfin_quote_form]' ) . bf_html( $success );
 	return bf_group( 'bf-quote-section', bf_group( 'container', bf_group( 'bf-quote-header', $heading )
-		. bf_group( 'bf-quote-layout', bf_group( 'bf-quote-infoCards', $cards ) . bf_group( 'bf-quote-formPanel', $form ) ) ), 'section' );
+		. bf_group( 'bf-quote-layout', bf_group( 'bf-quote-formPanel', $form ) . bf_group( 'bf-quote-infoCards', $cards ) ) ), 'section', 'request-a-quote' );
 }
 

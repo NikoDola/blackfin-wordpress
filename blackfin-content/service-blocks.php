@@ -18,19 +18,36 @@ function bf_service_directory( $services, $media ) {
 	$cards = '';
 	foreach ( $services as $slug => $service ) {
 		$card = bf_image( $media[ $service['image'] ], $service['alt'], 'bf-directory-photo', 'medium_large' )
-			. bf_heading( $service['title'], 'bf-directory-title', 3 )
-			. bf_text( esc_html( $service['summary'] ), 'bf-directory-summary' )
-			. bf_detail_link( $slug, 'Explore ' . strtolower( $service['title'] ) );
+			. bf_service_card_heading( bf_link( bf_url( '/' . $slug ), $service['title'] ) )
+			. bf_text( esc_html( $service['summary'] ), 'bf-directory-summary' );
 		$cards .= bf_group( 'bf-directory-card', $card );
 	}
 	return bf_group( 'bf-directory', bf_group( 'bf-detail-wrap',
 		bf_heading( 'Our Services', 'bf-detail-heading' ) . bf_group( 'bf-directory-grid', $cards ) ), 'section', 'blackfin-services' );
 }
 
+function bf_service_card_heading( $link ) {
+	return bf_block( 'heading', '<h3 class="wp-block-heading bf-directory-title">' . $link . '</h3>',
+		array( 'level' => 3, 'className' => 'bf-directory-title' ) );
+}
+
+function bf_home_overview_links() {
+	$links = bf_detail_link( 'residential', 'Residential projects' ) . bf_detail_link( 'commercial', 'Commercial projects' );
+	return bf_group( 'bf-service-links bf-home-overviews', bf_group( 'bf-detail-wrap',
+		bf_heading( 'Residential and commercial work', 'bf-detail-heading' ) . bf_group( 'bf-service-linkrow', $links ) ), 'section' );
+}
+
+function bf_service_preparation( $service, $media ) {
+	$photo = $service['prep'] ?? null;
+	return $photo ? bf_group( 'bf-detail-section bf-service-preparation', bf_group( 'bf-detail-wrap',
+		bf_heading( 'Preparing the site', 'bf-detail-heading' )
+		. bf_image( $media[ $photo['image'] ], $photo['alt'], 'bf-gallery-img', 'large', $photo['caption'] ) ), 'section' ) : '';
+}
+
 function bf_service_page( $slug, $services, $media ) {
 	$service = $services[ $slug ];
 	$content = bf_detail_hero( $service['title'], $service['intro'], $media[ $service['image'] ],
-		$service['alt'], 'Request a free quote', '/contact' );
+		$service['alt'], 'Request a free quote', bf_quote_path( $service['title'] ) );
 	$details = '';
 	foreach ( $service['sections'] as list( $heading, $body ) ) {
 		$details .= bf_group( 'bf-scope-item', bf_heading( $heading, 'bf-scope-title', 3 )
@@ -38,10 +55,11 @@ function bf_service_page( $slug, $services, $media ) {
 	}
 	$content .= bf_group( 'bf-detail-section', bf_group( 'bf-detail-wrap',
 		bf_heading( $service['heading'], 'bf-detail-heading' ) . bf_group( 'bf-scope-grid', $details ) ), 'section' );
+	$content .= bf_service_preparation( $service, $media );
 	$next = $service['related'];
 	$answer = bf_heading( $service['question'], 'bf-detail-heading' )
 		. bf_text( esc_html( $service['answer'] ), 'bf-detail-body' )
-		. bf_buttons( 'bf-detail-actions', bf_button( 'Discuss your project', '/contact' ) );
+		. bf_buttons( 'bf-detail-actions', bf_button( 'Discuss your project', bf_quote_path( $service['title'] ) ) );
 	$links = bf_heading( 'Related pages', 'bf-scope-title', 3 )
 		. bf_detail_link( $next, $services[ $next ]['title'] )
 		. bf_detail_link( 'about-us/#service-areas', 'Our Tampa Bay service areas' );
@@ -73,7 +91,7 @@ function bf_about_page( $services, $media ) {
 	$locations = bf_heading( 'Our Tampa Bay service areas', 'bf-detail-heading' )
 		. bf_text( 'Blackfin serves the following communities. If your project is nearby, send us the address and a short description so we can confirm coverage.', 'bf-detail-body' )
 		. bf_list( blackfin_service_areas(), 'bf-area-list' )
-		. bf_buttons( 'bf-detail-actions', bf_button( 'Ask about your project', '/contact' ) );
+		. bf_buttons( 'bf-detail-actions', bf_button( 'Ask about your project', bf_quote_path() ) );
 	$content .= bf_group( 'bf-detail-band', bf_group( 'bf-detail-wrap', $locations ), 'section', 'service-areas' );
 	return $content . bf_service_links( array_keys( $services ), $services, 'Explore our services' )
 		. bf_block( 'shortcode', '[blackfin_reviews]' );
